@@ -1,5 +1,7 @@
 # Thoses commands are based on:
 # https://forum.openmediavault.org/index.php?thread/27909-eta-for-omv-5-0-2020-2021-2022/&postID=219830#post219830
+# Status of plugins for OMV 5:
+# https://forum.openmediavault.org/index.php?thread/24545-why-should-you-use-or-not-use-dockers/&postID=186122#post186122
 
 apt-get purge openmediavault-cups openmediavault-dnsmasq openmediavault-docker-gui openmediavault-domoticz openmediavault-duplicati openmediavault-ldap openmediavault-letsencrypt openmediavault-mysql openmediavault-nginx openmediavault-openvpn openmediavault-pxe openmediavault-remotedesktop openmediavault-route openmediavault-shellinabox openmediavault-transmissionbt openmediavault-urbackup-server openmediavault-virtualbox openmediavault-webdav
 
