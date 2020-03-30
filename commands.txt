@@ -1,0 +1,25 @@
+# Thoses commands are based on:
+# https://forum.openmediavault.org/index.php?thread/27909-eta-for-omv-5-0-2020-2021-2022/&postID=219830#post219830
+
+apt-get purge openmediavault-cups openmediavault-dnsmasq openmediavault-docker-gui openmediavault-domoticz openmediavault-duplicati openmediavault-ldap openmediavault-letsencrypt openmediavault-mysql openmediavault-nginx openmediavault-openvpn openmediavault-pxe openmediavault-remotedesktop openmediavault-route openmediavault-shellinabox openmediavault-transmissionbt openmediavault-urbackup-server openmediavault-virtualbox openmediavault-webdav
+
+sed -i "s/stretch/buster/g" /etc/apt/sources.list
+sed -i "s/stretch/buster/g" /etc/apt/sources.list.d/*
+sed -i "s/arrakis/usul/g" /etc/apt/sources.list.d/*
+sed -i "/[Dd]ocker/d" /etc/apt/sources.list.d/omv-extras-org.list
+apt-get update
+apt-get dist-upgrade
+reboot
+apt-get purge openmediavault-omvextrasorg resolvconf
+wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash
+apt-get update
+apt-get dist-upgrade
+reboot
+
+# If you get nginx error 502 try to enter thoses commands
+
+omv-salt deploy run nginx
+omv-salt deploy run phpfpm
+
+# To enable sharedfolders set this in "/etc/default/openmediavault"
+OMV_SHAREDFOLDERS_DIR_ENABLED=”YES”
