@@ -25,3 +25,16 @@ omv-salt deploy run phpfpm
 
 # To enable sharedfolders set this in "/etc/default/openmediavault"
 OMV_SHAREDFOLDERS_DIR_ENABLED=”YES”
+
+# Enter thoses commands:
+omv-salt stage run prepare
+omv-salt deploy run systemd
+
+# Link to official doc about this:
+# https://github.com/openmediavault/openmediavault/blob/master/deb/openmediavault/debian/changelog
+# Disable the '/sharedfolder/<xyz>' feature by default on new
+# installations because it makes too much problems.
+# It can be enabled by setting the environment variable to
+# 'OMV_SHAREDFOLDERS_DIR_ENABLED="YES"'. Finally run the command
+# 'omv-salt stage run prepare' to apply the modified default values
+# and 'omv-salt deploy run systemd' to create the unit files.
